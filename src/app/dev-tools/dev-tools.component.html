@@ -1,0 +1,23 @@
+<section @fadeInAnimation>
+  <ol class="breadcrumb">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/company">Companies</a></li>
+      <li class ="active">Dev Tools</li>
+  </ol>
+
+  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+
+  <h2>Dev Tools</h2>
+  <main>
+    <div>
+      <button class="app-btn" (click)="clearInvoices()">Clear Invoices</button>
+    </div>
+    <div>
+      <button class="app-btn" (click)="clearRecords()">Clear All Records and Invoices</button>
+    </div>
+    <div>
+      <button class="app-btn" (click)="clearClients()">Clear Everything</button>
+    </div>
+  </main>
+ 
+</section>
