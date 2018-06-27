@@ -50,6 +50,17 @@ export class DataService {
         return this.http.post(apiUrl, record)
             .map(this.extractData);
     }
+/*     deleteAllCompanies(endpoint: string){
+        let apiUrl = `${this.baseUrl}${endpoint}/`;
+    }
+    deleteAllBillingRecords(endpoint: string){
+        let apiUrl = `${this.baseUrl}${endpoint}/`;
+    }
+  
+    deleteAllInvoices(endpoint: string){
+        let apiUrl = `${this.baseUrl}${endpoint}/`;
+    } */
+
 
 
     private extractData(res: Response) {

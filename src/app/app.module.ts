@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
-import { RouterModule }   from '@angular/router';
 import { MatDialogModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +14,10 @@ import { DataService } from './data.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { CompanyFormComponent } from './company-form/company-form.component';
 import { StatusMessageComponent } from './status-message/status-message.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DevToolsComponent } from './dev-tools/dev-tools.component';
+import { BillingRecordComponent } from './billing-record/billing-record.component';
+import { InvoicesComponent } from './invoices/invoices.component';  // IMPORT!!!
 
 @NgModule({
   declarations: [
@@ -24,12 +27,16 @@ import { StatusMessageComponent } from './status-message/status-message.componen
     HomeComponent,
     DeleteConfirmComponent,
     CompanyFormComponent,
-    StatusMessageComponent
+    StatusMessageComponent,
+    DevToolsComponent,
+    BillingRecordComponent,
+    InvoicesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule
