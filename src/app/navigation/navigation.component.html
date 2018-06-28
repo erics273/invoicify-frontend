@@ -22,11 +22,9 @@
             </div>
             <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success">Login</button>
         </form>
-        <ul class="nav navbar-right" *ngIf="authService.isAuthenticated()">
-            <li>
-                <a (click)="logout()">Logout</a>
-            </li>
-        </ul>
+        <div class="navbar-text navbar-right" *ngIf="authService.isAuthenticated()">
+            Signed in as: <a [routerLink]="['/user/edit/', auth_user.id]">{{auth_user.username}}</a> (<a (click)="logout()">Logout</a>)
+        </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li routerLinkActive="active">

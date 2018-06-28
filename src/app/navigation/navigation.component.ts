@@ -36,7 +36,7 @@ export class NavigationComponent implements OnInit {
   }
 
   refreshUser(){
-    this.auth_user = localStorage.getItem("auth_user");
+    this.auth_user = JSON.parse(localStorage.getItem("auth_user"));
   }
 
 }
