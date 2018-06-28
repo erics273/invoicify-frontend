@@ -10,7 +10,7 @@ import { fadeInAnimation } from '../animations/fade-in.animation';
   selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.css'],
-  animations: [fadeInAnimation],
+  animations: [fadeInAnimation]
 })
 export class CompanyComponent implements OnInit {
 

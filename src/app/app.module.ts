@@ -18,6 +18,8 @@ import { StatusMessageComponent } from './status-message/status-message.componen
 
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
+import { UserComponent } from './user/user.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AuthService } from './auth.service';
     HomeComponent,
     DeleteConfirmComponent,
     CompanyFormComponent,
-    StatusMessageComponent
+    StatusMessageComponent,
+    UserComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

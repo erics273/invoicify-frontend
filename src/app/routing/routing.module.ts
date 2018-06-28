@@ -6,6 +6,8 @@ import { AuthGuard } from '../auth-guard.service';
 import { CompanyComponent }   from '../company/company.component';
 import { CompanyFormComponent }   from '../company-form/company-form.component';
 import { HomeComponent }   from '../home/home.component';
+import { UserComponent } from '../user/user.component';
+import { UserFormComponent } from '../user-form/user-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,6 +15,9 @@ const routes: Routes = [
   { path: 'company',  component: CompanyComponent, canActivate: [AuthGuard] },
   { path: 'company/edit/:id', component: CompanyFormComponent, canActivate: [AuthGuard] },
   { path: 'company/add', component: CompanyFormComponent, canActivate: [AuthGuard] },
+  { path: 'user',  component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'user/edit/:id', component: UserFormComponent, canActivate: [AuthGuard] },
+  { path: 'user/add', component: UserFormComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
