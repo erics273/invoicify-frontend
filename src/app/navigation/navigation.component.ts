@@ -12,6 +12,9 @@ export class NavigationComponent implements OnInit {
 
   auth_user;
 
+  errorMessage: string;
+  successMessage: string;
+
   constructor(private authService: AuthService, public router: Router) { }
 
   ngOnInit() {
@@ -31,7 +34,10 @@ export class NavigationComponent implements OnInit {
     this.authService.login(user.value).subscribe(
       success=> {
         this.refreshUser();
-      } 
+      },
+      error => {
+        this.errorMessage = "Invalid login"
+      }
     );
   }
 
