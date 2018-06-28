@@ -67,6 +67,9 @@ export class DataService {
         if(typeof error._body === "string"){
             try {
                 errMsg = JSON.parse(error._body).message
+                if(errMsg.includes("ConstraintViolationException")){
+                    errMsg = "Cannot delete record because it has related to other records."
+                }
             } catch (error) {
                 errMsg = error._body;
             } 
