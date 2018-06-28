@@ -20,6 +20,8 @@ import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { UserComponent } from './user/user.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { BillingRecordComponent } from './billing-record/billing-record.component';
+import { BillingRecordFormComponent } from './billing-record-form/billing-record-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { UserFormComponent } from './user-form/user-form.component';
     CompanyFormComponent,
     StatusMessageComponent,
     UserComponent,
-    UserFormComponent
+    UserFormComponent,
+    BillingRecordComponent,
+    BillingRecordFormComponent,
   ],
   imports: [
     BrowserModule,

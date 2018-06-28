@@ -8,6 +8,8 @@ import { CompanyFormComponent }   from '../company-form/company-form.component';
 import { HomeComponent }   from '../home/home.component';
 import { UserComponent } from '../user/user.component';
 import { UserFormComponent } from '../user-form/user-form.component';
+import { BillingRecordComponent } from '../billing-record/billing-record.component';
+import { BillingRecordFormComponent } from '../billing-record-form/billing-record-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'user',  component: UserComponent, canActivate: [AuthGuard] },
   { path: 'user/edit/:id', component: UserFormComponent, canActivate: [AuthGuard] },
   { path: 'user/add', component: UserFormComponent, canActivate: [AuthGuard] },
+  { path: 'billing-record',  component: BillingRecordComponent, canActivate: [AuthGuard] },
+  { path: 'billing-record/add', component: BillingRecordFormComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
