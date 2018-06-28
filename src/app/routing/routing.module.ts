@@ -1,5 +1,7 @@
 import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
+
+import { AuthGuard } from '../auth-guard.service';
 
 import { CompanyComponent }   from '../company/company.component';
 import { CompanyFormComponent }   from '../company-form/company-form.component';
@@ -8,9 +10,9 @@ import { HomeComponent }   from '../home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',  component: HomeComponent },
-  { path: 'company',  component: CompanyComponent },
-  { path: 'company/edit/:id', component: CompanyFormComponent },
-  { path: 'company/add', component: CompanyFormComponent },
+  { path: 'company',  component: CompanyComponent, canActivate: [AuthGuard] },
+  { path: 'company/edit/:id', component: CompanyFormComponent, canActivate: [AuthGuard] },
+  { path: 'company/add', component: CompanyFormComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

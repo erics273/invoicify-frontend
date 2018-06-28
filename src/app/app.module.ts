@@ -16,6 +16,9 @@ import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.componen
 import { CompanyFormComponent } from './company-form/company-form.component';
 import { StatusMessageComponent } from './status-message/status-message.component';
 
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,7 @@ import { StatusMessageComponent } from './status-message/status-message.componen
     FormsModule
   ],
   entryComponents: [DeleteConfirmComponent],
-  providers: [DataService],
+  providers: [DataService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

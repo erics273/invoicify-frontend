@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  auth_user;
+
+  constructor(private authService: AuthService, public router: Router) { }
 
   ngOnInit() {
+    this.refreshUser();
+  }
+
+  logout(){
+    this.authService.logout().subscribe(
+      success=> {
+        this.refreshUser();
+        this.router.navigate(["home"])
+      } 
+    );
+  }
+
+  login(user: NgForm){
+    this.authService.login(user.value).subscribe(
+      success=> {
+        this.refreshUser();
+      } 
+    );
+  }
+
+  refreshUser(){
+    this.auth_user = localStorage.getItem("auth_user");
   }
 
 }

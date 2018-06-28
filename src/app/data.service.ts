@@ -11,7 +11,7 @@ import 'rxjs/add/observable/empty';
 @Injectable()
 export class DataService {
 
-    private baseUrl = 'http://localhost:8080/api/'
+    private baseUrl = 'https://api-invoicify-phase2.herokuapp.com/api/'
 
     found = false;
 
@@ -31,15 +31,17 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    deleteRecord(endpoint: string, id:number): Observable<object> {
-        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+    deleteRecord(endpoint: string, id?:number): Observable<object> {
+        let apiUrl = `${this.baseUrl}${endpoint}`;
+        apiUrl = (id) ? apiUrl + "/" + id : apiUrl;
         return this.http.delete(apiUrl)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
-    editRecord(endpoint: string, record:object, id:number): Observable<object> {
-        let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+    editRecord(endpoint: string, record:object, id?:number): Observable<object> {
+        let apiUrl = `${this.baseUrl}${endpoint}`;
+        apiUrl = (id) ? apiUrl + "/" + id : apiUrl;
         return this.http.put(apiUrl, record)
             .map(this.extractData)
             .catch(this.handleError);
@@ -61,7 +63,11 @@ export class DataService {
         // In a real world app, you might use a remote logging infrastructure
         let errMsg: string;
         if(typeof error._body === "string"){
-            errMsg = error._body
+            try {
+                errMsg = JSON.parse(error._body).message
+            } catch (error) {
+                errMsg = error._body;
+            } 
         }else{
             if (error instanceof Response) {
                 if(error.status === 0){
